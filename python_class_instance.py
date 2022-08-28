@@ -19,22 +19,24 @@ class Employee:
 
 		def apply_raise(self):
 			# appraisal will be 10 percent of the pay
-			return self.salary * Employee.raise_percent
+			return self.salary * self.raise_percent
+
+		@classmethod
+		def set_raise_percent(cls, percent):
+			cls.raise_percent = percent
 
 
-emp_1 = Employee('sam','kurien',5000)
-emp_2 = Employee('winston','churchil',6000)
-emp_3 = Employee('winston','churchil',6000)
-print(Employee.num_employees)
+emp_1 = Employee('sam','kurien',100)
+emp_2 = Employee('winston','churchil',100)
 
-#print(emp_1.salary)
-#print(emp_1.apply_raise())
+Employee.set_raise_percent(1.30)
 
-emp_2.raise_percent = 1.20
+#emp_2.raise_percent = 1.20
 print(Employee.raise_percent)
 print(emp_1.raise_percent)
 print(emp_2.raise_percent)
 
-
+print(emp_1.salary)
+print(emp_1.apply_raise())
 print(emp_2.salary)
 print(emp_2.apply_raise())
